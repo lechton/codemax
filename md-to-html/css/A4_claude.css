@@ -67,6 +67,8 @@ h2 {
     padding-bottom: 0.25em;
     border-bottom: 1px solid #e6dfd4;
     color: #2d2b27;
+    page-break-before: always;
+    break-before: page;
 }
 
 h3 {
