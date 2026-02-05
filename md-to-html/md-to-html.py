@@ -25,12 +25,11 @@ CSS_DIR = SCRIPT_DIR / "css"
 DEFAULT_INPUT_DIR = SCRIPT_DIR / "input_markdown"
 DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "output_html"
 
-# Available CSS presets (file stem → display label)
-CSS_PRESETS = {
-    "A4_official": "A4 Official — Formal serif document (Times New Roman, corporate layout)",
-    "A4_github": "A4 GitHub  — GitHub-flavored markdown style (system sans-serif)",
-    "A4_claude": "A4 Claude  — Anthropic / Claude style (warm tones, modern sans-serif)",
-}
+def discover_css_presets() -> list[Path]:
+    """Return sorted list of .css files in the css/ directory."""
+    if not CSS_DIR.is_dir():
+        return []
+    return sorted(CSS_DIR.glob("*.css"))
 
 
 # ============================================================================
@@ -478,17 +477,18 @@ def main() -> None:
     # ---- Step 3: CSS preset ------------------------------------------------
     section("Step 3 — Choose HTML Style Preset")
 
-    preset_keys = list(CSS_PRESETS.keys())
-    preset_labels = list(CSS_PRESETS.values())
-    idx = prompt_choice("Select a CSS theme:", preset_labels)
-    chosen_preset = preset_keys[idx]
-
-    css_file = CSS_DIR / f"{chosen_preset}.css"
-    if not css_file.is_file():
-        print(c(f"  CSS file not found: {css_file}", "red"))
+    css_files = discover_css_presets()
+    if not css_files:
+        print(c("  No .css files found in css/. Add at least one CSS file.", "red"))
         sys.exit(1)
+    idx = prompt_choice(
+        "Select a CSS theme:",
+        [f.name for f in css_files],
+    )
+    css_file = css_files[idx]
+    chosen_preset = css_file.stem
     css_content = css_file.read_text(encoding="utf-8")
-    print(c(f"  Theme: {chosen_preset}", "dim"))
+    print(c(f"  Theme: {css_file.name}", "dim"))
 
     # ---- Step 4: Convert & write -------------------------------------------
     section("Step 4 — Converting")
