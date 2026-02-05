@@ -497,7 +497,7 @@ def main() -> None:
     title = Path(source_name).stem.replace("_", " ").replace("-", " ").title()
     full_html = build_html_document(title, css_content, body_html)
 
-    out_filename = Path(source_name).stem + ".html"
+    out_filename = Path(source_name).stem + "-" + chosen_preset + ".html"
     out_path = out_dir / out_filename
     out_path.write_text(full_html, encoding="utf-8")
 
