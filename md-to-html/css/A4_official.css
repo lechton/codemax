@@ -1,0 +1,384 @@
+/* ==========================================================================
+   A4 Official / Corporate Document Style
+   Designed for professional reports, memos, and formal documentation.
+   Page size: A4 (210mm × 297mm)
+   ========================================================================== */
+
+@page {
+    size: A4;
+    margin: 25mm 20mm 25mm 20mm;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+body {
+    font-family: "Times New Roman", "Georgia", "Cambria", serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 25mm 20mm;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* --- Headings --- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia", "Cambria", serif;
+    color: #0d0d0d;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    line-height: 1.25;
+    text-align: left;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2.5pt solid #1a1a1a;
+    padding-bottom: 10pt;
+    margin-top: 0;
+    margin-bottom: 1.2em;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 16pt;
+    font-weight: 700;
+    border-bottom: 1pt solid #4a4a4a;
+    padding-bottom: 6pt;
+    color: #1a1a1a;
+}
+
+h3 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #2a2a2a;
+}
+
+h4 {
+    font-size: 11.5pt;
+    font-weight: 700;
+    font-style: italic;
+    color: #333333;
+}
+
+h5 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #444444;
+}
+
+h6 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+}
+
+/* --- Paragraphs & Text --- */
+
+p {
+    margin: 0 0 0.8em 0;
+    text-indent: 0;
+    orphans: 3;
+    widows: 3;
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+small {
+    font-size: 9pt;
+}
+
+mark {
+    background-color: #fff3cd;
+    padding: 1pt 3pt;
+}
+
+abbr[title] {
+    border-bottom: 1pt dotted #666666;
+    cursor: help;
+    text-decoration: none;
+}
+
+/* --- Links --- */
+
+a {
+    color: #003366;
+    text-decoration: underline;
+    text-decoration-color: #6699cc;
+    text-underline-offset: 2pt;
+}
+
+a:hover {
+    color: #001a33;
+}
+
+@media print {
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666666;
+    }
+}
+
+/* --- Lists --- */
+
+ul, ol {
+    margin: 0.5em 0 1em 0;
+    padding-left: 2em;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+li {
+    margin-bottom: 0.3em;
+    line-height: 1.55;
+}
+
+li > p {
+    margin-bottom: 0.3em;
+}
+
+/* --- Blockquotes --- */
+
+blockquote {
+    margin: 1.2em 0;
+    padding: 12pt 18pt;
+    border-left: 3pt solid #333333;
+    background-color: #f7f7f7;
+    font-style: italic;
+    color: #333333;
+    page-break-inside: avoid;
+}
+
+blockquote p {
+    margin-bottom: 0.4em;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote blockquote {
+    margin: 0.6em 0;
+    border-left-color: #888888;
+}
+
+/* --- Code --- */
+
+code {
+    font-family: "Courier New", "Courier", monospace;
+    font-size: 9.5pt;
+    background-color: #f0f0f0;
+    border: 0.5pt solid #cccccc;
+    border-radius: 2pt;
+    padding: 1pt 4pt;
+    color: #333333;
+}
+
+pre {
+    margin: 1em 0;
+    padding: 14pt;
+    background-color: #f5f5f5;
+    border: 0.5pt solid #cccccc;
+    border-radius: 3pt;
+    overflow-x: auto;
+    page-break-inside: avoid;
+    line-height: 1.45;
+}
+
+pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 9pt;
+    color: #1a1a1a;
+}
+
+/* --- Tables --- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+}
+
+thead {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+th {
+    font-weight: 700;
+    text-align: left;
+    padding: 8pt 10pt;
+    border: 0.5pt solid #2c3e50;
+    letter-spacing: 0.3pt;
+}
+
+td {
+    padding: 7pt 10pt;
+    border: 0.5pt solid #cccccc;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+caption {
+    caption-side: bottom;
+    font-size: 9pt;
+    font-style: italic;
+    color: #666666;
+    padding-top: 6pt;
+    text-align: left;
+}
+
+/* --- Horizontal Rule --- */
+
+hr {
+    border: none;
+    border-top: 1pt solid #aaaaaa;
+    margin: 2em 0;
+}
+
+/* --- Images & Figures --- */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    border: 0.5pt solid #dddddd;
+}
+
+figure {
+    margin: 1.5em 0;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+figcaption {
+    font-size: 9pt;
+    font-style: italic;
+    color: #555555;
+    margin-top: 6pt;
+}
+
+/* --- Definition Lists --- */
+
+dl {
+    margin: 1em 0;
+}
+
+dt {
+    font-weight: 700;
+    margin-top: 0.8em;
+}
+
+dd {
+    margin-left: 2em;
+    margin-bottom: 0.4em;
+}
+
+/* --- Footnotes --- */
+
+sup {
+    font-size: 8pt;
+    line-height: 0;
+}
+
+.footnote {
+    font-size: 9pt;
+    color: #555555;
+    border-top: 0.5pt solid #cccccc;
+    margin-top: 2em;
+    padding-top: 0.8em;
+}
+
+/* --- Table of Contents Style --- */
+
+.toc {
+    background-color: #fafafa;
+    border: 0.5pt solid #cccccc;
+    padding: 14pt 18pt;
+    margin: 1.5em 0;
+    page-break-inside: avoid;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc ul ul {
+    padding-left: 1.5em;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #003366;
+}
+
+/* --- Print Specific --- */
+
+@media print {
+    body {
+        padding: 0;
+        font-size: 11pt;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    pre, blockquote, table, figure, img {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+}

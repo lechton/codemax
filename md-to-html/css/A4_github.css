@@ -1,0 +1,417 @@
+/* ==========================================================================
+   A4 GitHub Style
+   Replicates the look and feel of GitHub's markdown rendering.
+   Page size: A4 (210mm × 297mm)
+   ========================================================================== */
+
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1f2328;
+    background-color: #ffffff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* --- Headings --- */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #1f2328;
+    page-break-after: avoid;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #d1d9e0;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #d1d9e0;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: #656d76;
+}
+
+/* --- Paragraphs --- */
+
+p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+/* --- Links --- */
+
+a {
+    color: #0969da;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #0550ae;
+}
+
+/* --- Strong / Emphasis --- */
+
+strong, b {
+    font-weight: 600;
+}
+
+/* --- Lists --- */
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-left: 2em;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li {
+    margin-top: 0.25em;
+}
+
+li + li {
+    margin-top: 0.25em;
+}
+
+li > p {
+    margin-top: 16px;
+}
+
+/* Task lists (GitHub-style checkboxes) */
+ul.task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.task-list-item {
+    position: relative;
+    padding-left: 1.75em;
+}
+
+.task-list-item input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0.3em;
+    margin: 0;
+}
+
+/* --- Blockquotes --- */
+
+blockquote {
+    margin: 0 0 16px 0;
+    padding: 0 1em;
+    color: #656d76;
+    border-left: 0.25em solid #d1d9e0;
+}
+
+blockquote > :first-child {
+    margin-top: 0;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+blockquote blockquote {
+    margin-bottom: 0;
+}
+
+/* --- Code --- */
+
+code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    background-color: rgba(175, 184, 193, 0.2);
+    border-radius: 6px;
+    color: #1f2328;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    border: 1px solid #d1d9e0;
+    page-break-inside: avoid;
+}
+
+pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+    font-size: 100%;
+    color: inherit;
+    border-radius: 0;
+}
+
+/* --- Tables --- */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 16px;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    display: table;
+    page-break-inside: avoid;
+}
+
+th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #d1d9e0;
+    text-align: left;
+    background-color: #f6f8fa;
+}
+
+td {
+    padding: 6px 13px;
+    border: 1px solid #d1d9e0;
+    vertical-align: top;
+}
+
+tr {
+    background-color: #ffffff;
+    border-top: 1px solid #d1d9e0;
+}
+
+tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+/* --- Horizontal Rule --- */
+
+hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #d1d9e0;
+    border: 0;
+    border-radius: 2px;
+}
+
+/* --- Images --- */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 16px 0;
+    border-radius: 6px;
+    border: 1px solid #d1d9e0;
+}
+
+figure {
+    margin: 16px 0;
+    page-break-inside: avoid;
+}
+
+figcaption {
+    font-size: 0.85em;
+    color: #656d76;
+    margin-top: 8px;
+}
+
+/* --- Definition Lists --- */
+
+dl {
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 600;
+}
+
+dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+/* --- Keyboard Key Style --- */
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    line-height: 10px;
+    color: #1f2328;
+    vertical-align: middle;
+    background-color: #f6f8fa;
+    border: solid 1px rgba(175, 184, 193, 0.2);
+    border-bottom-color: rgba(175, 184, 193, 0.4);
+    border-radius: 6px;
+    box-shadow: inset 0 -1px 0 rgba(175, 184, 193, 0.4);
+}
+
+/* --- Alerts (GitHub-style note/warning boxes) --- */
+
+.markdown-alert {
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    border-left: 0.25em solid;
+    border-radius: 6px;
+}
+
+.markdown-alert-note {
+    border-left-color: #0969da;
+    background-color: #ddf4ff;
+}
+
+.markdown-alert-tip {
+    border-left-color: #1a7f37;
+    background-color: #dafbe1;
+}
+
+.markdown-alert-important {
+    border-left-color: #8250df;
+    background-color: #fbefff;
+}
+
+.markdown-alert-warning {
+    border-left-color: #9a6700;
+    background-color: #fff8c5;
+}
+
+.markdown-alert-caution {
+    border-left-color: #cf222e;
+    background-color: #ffebe9;
+}
+
+/* --- Emoji-style rendering --- */
+
+.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    vertical-align: text-bottom;
+}
+
+/* --- Footnotes --- */
+
+.footnotes {
+    font-size: 0.85em;
+    color: #656d76;
+    border-top: 1px solid #d1d9e0;
+    padding-top: 16px;
+    margin-top: 32px;
+}
+
+sup {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+/* --- Summary / Details --- */
+
+details {
+    margin-bottom: 16px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    display: list-item;
+}
+
+details[open] summary {
+    margin-bottom: 8px;
+}
+
+/* --- Print Specific --- */
+
+@media print {
+    body {
+        padding: 0;
+        background: none;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #656d76;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    pre, blockquote, table {
+        page-break-inside: avoid;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+}
