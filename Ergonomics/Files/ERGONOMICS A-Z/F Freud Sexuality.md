@@ -1,0 +1,33 @@
+---
+id: 01KFVJG69YWVY2J0BFSBSGGXFK
+---
+Freud
+
+- Sexuality 
+  - Video
+  - Link
+    - https://youtu.be/iEc9eijkS-w?si=XXrHaSMaK752jaT9
+  - Image 1:
+  - "I can still recall vividly how Freud said to me, 'My dear Jung, promise me never to abandon the sexual theory. That is the most essential thing of all. You see, we must make a dogma of it, an unshakable bulwark.'"
+  - —Jung, Memories, Dreams, Reflections
+  - Image 2:
+  - "He said that to me with great emotion, in the tone of a father saying, 'And promise me this one thing, my dear son: that you will go to church every Sunday.'"
+  - —Jung, Memories, Dreams, Reflections
+  - Image 3:
+  - "In some astonishment I asked him, 'A bulwark against what?' To which he replied, 'Against the black tide of mud' and here he hesitated for a moment, then added 'of occultism.'"
+  - —Jung, Memories, Dreams, Reflections
+  - Image 4:
+  - "What Freud seemed to mean by 'occultism' was virtually everything that philosophy and religion, including the rising contemporary science of parapsychology, had learned about the psyche..."
+  - —Jung, Memories, Dreams, Reflections
+  - Image 1:
+  - "...until then I had not considered sexuality as a precious and imperiled concept to which one must remain faithful. Sexuality evidently meant more to Freud than to other people..."
+  - —Jung, Memories, Dreams, Reflections
+  - Image 2:
+  - "Freud, who had always made much of his irreligiosity, had now constructed a dogma; or rather, in the place of a jealous God whom he had lost, he had substituted another compelling image, that of sexuality."
+  - —Jung, Memories, Dreams, Reflections
+  - Image 3
+  - "...and with it, of course, the point of view: the lost god had now to be sought below, not above."
+  - —Jung, Memories, Dreams, Reflections
+  - Image 4:
+  - "sexual symbolism can conceal itself...[for example] the dread of snakes, which is natural to mankind, is monstrously exaggerated in neurotics...this has a definite sexual meaning."
+  - —Freud, The Interpretation of Dreams
