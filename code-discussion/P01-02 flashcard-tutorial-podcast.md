@@ -64,19 +64,19 @@ We need an API because static files can't handle CRUD operations from external a
 
 ❒ Alright, Section 2 — we're setting up the environment. What's the game plan here?
 
-Four steps, nice and clean. First, we create a project folder and a Python virtual environment. Second, we install FastAPI, Uvicorn, and the Supabase client. Third, we create a dot env file for our Supabase credentials. Fourth, we verify everything works with a quick test run. After this section you'll have a working folder on your Mac with everything installed and ready to go.
+Four steps, nice and clean. First, we create a project folder and activate our Python virtual environment. Second, we install FastAPI, Uvicorn, and the Supabase client. Third, we create a dot env file for our Supabase credentials. Fourth, we verify everything works with a quick test run. After this section you'll have a working folder on your Mac with everything installed and ready to go.
 
-❒ Let's start. How do we create the project folder and virtual environment?
+❒ Let's start. How do we create the project folder and activate the virtual environment?
 
-Open your Terminal. Type these commands one at a time. First, mkdir flashcard-api — that creates the folder. Then cd flashcard-api — that moves you into it. Then python3 dash m venv venv — that creates the virtual environment. And finally, source venv slash bin slash activate — that activates it. After you run that last one, your terminal prompt will change. You'll see the word venv in parentheses at the beginning. That means you're inside the virtual environment.
+Open your Terminal. Type these commands one at a time. First, mkdir flashcard-api — that creates the folder. Then cd flashcard-api — that moves you into it. Then workon vintel — that activates the virtual environment. After you run that last one, your terminal prompt will change. You'll see the word vintel in parentheses at the beginning. That means you're inside the virtual environment.
 
 ❒ What exactly is a virtual environment? Why do we need one?
 
-Think of it as an isolated Python installation that lives inside your project. When you install libraries while the virtual environment is active, they go into the venv folder, not into your system Python. So your flashcard project's dependencies will never conflict with another project's dependencies. One important thing to remember — every time you open a new terminal window to work on this project, you have to run that source venv slash bin slash activate command again. The activation doesn't persist between terminal sessions.
+Think of it as an isolated Python installation managed by virtualenvwrapper. The workon command activates a named environment stored in a central location — typically the dot virtualenvs folder in your home directory — keeping your project folder clean. When you install libraries while the virtual environment is active, they go into that central environment, not into your system Python. So your flashcard project's dependencies will never conflict with another project's dependencies. One important thing to remember — every time you open a new terminal window to work on this project, you have to run workon vintel again. The activation doesn't persist between terminal sessions.
 
 ❒ Got it. Now what do we install?
 
-With your virtual environment active — you should see that venv in parentheses — run pip install fastapi uvicorn supabase python-dotenv. That single command installs four packages.
+With your virtual environment active — you should see vintel in parentheses — run pip install fastapi uvicorn supabase python-dotenv. That single command installs four packages.
 
 ❒ Can you break down what each one does?
 
@@ -88,7 +88,7 @@ In the root of your flashcard-api folder, create a file called dot env — notic
 
 ❒ Where do I find those values?
 
-Go to your Supabase dashboard at supabase dot com, open your project, click on Project Settings in the left sidebar, then click API. You'll see two values right there — the Project URL and the anon public key. Copy those into your dot env file. And here's the important part — also create a dot gitignore file in your project root. Inside it, put three lines: venv slash, dot env, and double underscore pycache double underscore slash. This tells Git to ignore your virtual environment, your secrets file, and Python's cache files. You never want your credentials ending up on GitHub.
+Go to your Supabase dashboard at supabase dot com, open your project, click on Project Settings in the left sidebar, then click API. You'll see two values right there — the Project URL and the anon public key. Copy those into your dot env file. And here's the important part — also create a dot gitignore file in your project root. Inside it, put two lines: dot env, and double underscore pycache double underscore slash. This tells Git to ignore your secrets file and Python's cache files. You never want your credentials ending up on GitHub.
 
 ❒ How do we verify everything is working?
 
@@ -100,7 +100,7 @@ The format is uvicorn followed by filename without extension colon variable name
 
 ❒ Quick recap of Section 2?
 
-We did four things. Created the project folder and virtual environment. Installed four packages — fastapi, uvicorn, supabase, and python-dotenv. Created a dot env file with our Supabase credentials and a dot gitignore to protect them. And verified everything by running a tiny test server. Our project folder right now has the dot env file, the dot gitignore, and the venv folder. That's all we need. On to Section 3.
+We did four things. Created the project folder and activated our virtual environment with workon vintel. Installed four packages — fastapi, uvicorn, supabase, and python-dotenv. Created a dot env file with our Supabase credentials and a dot gitignore to protect them. And verified everything by running a tiny test server. Our project folder right now has the dot env file and the dot gitignore. That's all we need. On to Section 3.
 
 ---
 
@@ -232,7 +232,7 @@ With something called routers. A router is basically a mini-application that han
 
 ❒ What does the complete folder structure look like?
 
-At the top level you have your flashcard-api folder. Inside it — dot env, dot gitignore, main dot py, database dot py. Then three subfolders. A models folder with an init file and four model files — user underscore models, cardfolder underscore models, cardset underscore models, card underscore models. A routers folder with an init file and four router files — same naming pattern. And a utils folder with an init file and audio underscore text dot py. Plus the venv folder from our setup.
+At the top level you have your flashcard-api folder. Inside it — dot env, dot gitignore, main dot py, database dot py. Then three subfolders. A models folder with an init file and four model files — user underscore models, cardfolder underscore models, cardset underscore models, card underscore models. A routers folder with an init file and four router files — same naming pattern. And a utils folder with an init file and audio underscore text dot py.
 
 ❒ What do those init files do? The double underscore init double underscore dot py ones?
 
@@ -542,7 +542,7 @@ User registration and lookup. Folder ownership. Card set ownership. Ownership en
 
 ❒ How do you actually run this thing?
 
-Three commands. cd flashcard-api. source venv slash bin slash activate. uvicorn main colon app dash dash reload. Then open localhost colon 8000 slash docs in your browser and you can see and test every endpoint interactively.
+Three commands. cd flashcard-api. workon vintel. uvicorn main colon app dash dash reload. Then open localhost colon 8000 slash docs in your browser and you can see and test every endpoint interactively.
 
 ❒ If someone only remembers a few things from this whole tutorial, what should they be?
 

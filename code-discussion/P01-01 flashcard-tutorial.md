@@ -102,7 +102,7 @@ Let us pause and review what we have established. We need an API because static 
 We are now in Section 2. Remember our roadmap: Section 1 explained why we need FastAPI and Supabase (essentially, we need a living program that handles CRUD operations and talks to a database for multiple users). Now in Section 2, we install everything and create our project skeleton. After this section, you will have a working folder on your Mac with all dependencies installed and ready to go.
 
 There are **four steps** in this section:
-1. Create a project folder and a Python virtual environment
+1. Create a project folder and activate the Python virtual environment
 2. Install FastAPI, Uvicorn, and the Supabase client
 3. Create a `.env` file for your Supabase credentials
 4. Verify everything works with a test run
@@ -118,23 +118,22 @@ Open your Terminal on macOS. Type the following commands one at a time:
 ```bash
 mkdir flashcard-api
 cd flashcard-api
-python3 -m venv venv
-source venv/bin/activate
+workon vintel
 ```
 
-After running these four commands, your terminal prompt will change. It will now show `(venv)` at the beginning, which means you are inside the virtual environment.
+After running these three commands, your terminal prompt will change. It will now show `(vintel)` at the beginning, which means you are inside the virtual environment.
 
 **Abstract layer — what just happened:**
 
-The first command, `mkdir flashcard-api`, creates an empty directory called `flashcard-api`. The second command, `cd flashcard-api`, moves us into that directory. The third command, `python3 -m venv venv`, creates a virtual environment inside a subfolder called `venv`. And the fourth command, `source venv/bin/activate`, activates that virtual environment.
+The first command, `mkdir flashcard-api`, creates an empty directory called `flashcard-api`. The second command, `cd flashcard-api`, moves us into that directory. The third command, `workon vintel`, activates the virtual environment using virtualenvwrapper.
 
-A virtual environment is an isolated Python installation inside your project. When you install libraries while the virtual environment is active, they go into the `venv` folder, not into your system Python. This means your flashcard project's dependencies will never conflict with another project's dependencies. Every time you open a new terminal window to work on this project, you must run `source venv/bin/activate` again — the activation does not persist between terminal sessions.
+A virtual environment is an isolated Python installation managed by virtualenvwrapper. The `workon` command activates a named environment stored in a central location (typically `~/.virtualenvs/`), keeping your project folder clean. When you install libraries while the virtual environment is active, they go into that central environment, not into your system Python. This means your flashcard project's dependencies will never conflict with another project's dependencies. Every time you open a new terminal window to work on this project, you must run `workon vintel` again — the activation does not persist between terminal sessions.
 
 ### 2.2 — Step 2: Install FastAPI, Uvicorn, and the Supabase Client
 
 **Concrete layer — what you type:**
 
-With your virtual environment active (you should see `(venv)` in your prompt), run:
+With your virtual environment active (you should see `(vintel)` in your prompt), run:
 
 ```bash
 pip install fastapi uvicorn supabase python-dotenv
@@ -172,12 +171,11 @@ Your Supabase URL and API key are credentials. If you hardcode them directly in 
 Also create a `.gitignore` file in the root of your project:
 
 ```
-venv/
 .env
 __pycache__/
 ```
 
-This tells Git to ignore your virtual environment folder, your secrets file, and Python's cache files.
+This tells Git to ignore your secrets file and Python's cache files.
 
 ### 2.4 — Step 4: Verify Everything Works
 
@@ -213,15 +211,14 @@ Press `Ctrl+C` in your terminal to stop the server. You can delete `test_setup.p
 
 ### Section 2 — Review
 
-Let us review Section 2. We did four things. First, we created the project folder and a virtual environment with `python3 -m venv venv` and activated it with `source venv/bin/activate`. Second, we installed four packages: `fastapi` (the framework), `uvicorn` (the server), `supabase` (the database client), and `python-dotenv` (for reading the `.env` file). Third, we created a `.env` file containing our Supabase URL and key, and a `.gitignore` to protect those secrets. Fourth, we verified everything by creating a tiny test file and running Uvicorn.
+Let us review Section 2. We did four things. First, we created the project folder and activated our virtual environment with `workon vintel`. Second, we installed four packages: `fastapi` (the framework), `uvicorn` (the server), `supabase` (the database client), and `python-dotenv` (for reading the `.env` file). Third, we created a `.env` file containing our Supabase URL and key, and a `.gitignore` to protect those secrets. Fourth, we verified everything by creating a tiny test file and running Uvicorn.
 
 Our project folder currently looks like this:
 
 ```
 flashcard-api/
 ├── .env
-├── .gitignore
-└── venv/
+└── .gitignore
 ```
 
 That is all we need so far. Section 2 is done. Now we move to Section 3, where we design our database tables in Supabase — including the new `users` table and the ownership, visibility, and audit columns.
@@ -230,8 +227,8 @@ That is all we need so far. Section 2 is done. Now we move to Section 3, where w
 
 | # | Question | Answer |
 |---|----------|--------|
-| 1 | What command creates a virtual environment? | `python3 -m venv venv` — this creates a folder called `venv` with an isolated Python installation. |
-| 2 | Why must you activate the virtual environment every time? | Activation is session-specific. Each new terminal window starts without it. Run `source venv/bin/activate`. |
+| 1 | What command activates the virtual environment? | `workon vintel` — this activates the virtualenvwrapper environment called `vintel`. |
+| 2 | Why must you activate the virtual environment every time? | Activation is session-specific. Each new terminal window starts without it. Run `workon vintel`. |
 | 3 | What does Uvicorn do? | It is the ASGI server that listens for HTTP requests and passes them to FastAPI. FastAPI alone cannot receive requests. |
 | 4 | What does `python-dotenv` do? | It reads the `.env` file and loads its key-value pairs as environment variables accessible via `os.environ`. |
 | 5 | What does the `--reload` flag do in Uvicorn? | It watches your source files and automatically restarts the server when you save changes. |
@@ -247,7 +244,7 @@ That is all we need so far. Section 2 is done. Now we move to Section 3, where w
 
 ---
 
-We are now in Section 3. Quick recap of where we stand: Section 1 explained why we need an API, a database, and multi-user features (ownership, visibility, audit trails, copying). Section 2 set up our development environment — we have FastAPI, Uvicorn, Supabase client, and python-dotenv installed, a virtual environment, and a `.env` file with our credentials. Now in Section 3, we design the actual database tables.
+We are now in Section 3. Quick recap of where we stand: Section 1 explained why we need an API, a database, and multi-user features (ownership, visibility, audit trails, copying). Section 2 set up our development environment — we have FastAPI, Uvicorn, Supabase client, and python-dotenv installed in our virtual environment, and a `.env` file with our credentials. Now in Section 3, we design the actual database tables.
 
 This section has **four parts**:
 1. Understanding the data hierarchy (users → folders → cardsets → cards)
@@ -462,7 +459,6 @@ flashcard-api/
 ├── utils/
 │   ├── __init__.py
 │   └── audio_text.py
-└── venv/
 ```
 
 To create this structure from your terminal (make sure you are in the `flashcard-api` directory):
@@ -1793,7 +1789,7 @@ We have built a complete multi-user FastAPI application with Supabase integratio
 
 ```bash
 cd flashcard-api
-source venv/bin/activate
+workon vintel
 uvicorn main:app --reload
 ```
 
